@@ -1,0 +1,135 @@
+body {
+  background-color: #000639;
+}
+.headerContact {
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  font-size: 24px;
+  color: #FFF;
+  text-align: left;
+
+}
+.subheaderContact {
+  padding-top: 70px;
+  padding-bottom: 20px;
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  font-size: 20px;
+  color: #EEE;
+  text-align: left;
+}
+
+.emailField {
+  color:#7B7B7B;
+  margin:auto;
+  width: 380px;
+  float:left;
+}
+
+.interestField {
+  color: #7B7B7B;
+  width: 220px;
+  float:left;
+  margin-left: 20px;
+  text-align: left;
+}
+
+.formField {
+  padding-top: 70px;
+  font-size: 16px;
+  width: 620px;
+  margin:auto;
+}
+
+.greenSeparatorContact {
+  width: 50px;
+  height:6px;
+  background-color: #7AB55C;
+}
+
+.errorMessageField {
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  text-align: left;
+  color:#C23628;
+  font-size: 15px;
+}
+
+
+.buttonField {
+  font-family: 'Helvetica', 'Arial', sans-serif;
+
+  border-radius: 5px;
+  border-color: #5c6ac4;
+  background-color: #5c6ac4;
+  color: #FFF;
+  height: 50px;
+  width: 620px;
+  margin:auto;
+  border-style: outset;
+  border:0;
+}
+.buttonField:active {
+  border-style: outset;
+}
+
+.footerContact {
+  /* margin: auto; */
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  height: 30px;
+  color: #FFF;
+  text-align: center;
+  z-index: 2;
+}
+
+
+@media screen and (max-height: 500px) {
+  .footerContact {
+    /* margin: auto; */
+    padding-top: 100px;
+    bottom: auto;
+    position: relative;
+    width: 100%;
+    height: 30px;
+    color: #FFF;
+    text-align: center;
+    z-index: 2;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .emailField {
+    color:#7B7B7B;
+    margin:auto;
+    width: 100%;
+    float:left;
+  }
+
+  .interestField {
+    color: #7B7B7B;
+    width: 100%;
+    float:left;
+    margin-left: 0px;
+    text-align: left;
+  }
+
+  .formField {
+    padding-top: 70px;
+    font-size: 16px;
+    width: 90%;
+    margin:auto;
+  }
+  .buttonField {
+    font-family: 'Helvetica', 'Arial', sans-serif;
+
+    border-radius: 5px;
+    border-color: #5c6ac4;
+    background-color: #5c6ac4;
+    color: #FFF;
+    height: 50px;
+    width: 100%;
+    margin:auto;
+  }
+}
