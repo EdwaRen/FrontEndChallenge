@@ -7,12 +7,12 @@ import 'react-select/dist/react-select.css';
 
 
 const INTERESTS = [
-	{ label: 'Ecommerce', value: 'Ecommerce' },
-	{ label: 'Startups', value: 'Startups' },
-	{ label: 'Fashion', value: 'Fashion' },
-	{ label: 'Tech', value: 'Tech' },
-	{ label: 'Automobiles', value: 'Automobiles' },
-	{ label: 'Journals', value: 'Journals' },
+  { label: 'Ecommerce', value: 'Ecommerce' },
+  { label: 'Startups', value: 'Startups' },
+  { label: 'Fashion', value: 'Fashion' },
+  { label: 'Tech', value: 'Tech' },
+  { label: 'Automobiles', value: 'Automobiles' },
+  { label: 'Journals', value: 'Journals' },
 ];
 
 class Contact extends Component {
@@ -44,11 +44,12 @@ class Contact extends Component {
   }
 
   handleChange(e) {
-    console.log("change detecteds", this.state.email)
+    // Ensures email is saved into the this.state whenever the input changes
     this.setState({ email: e.target.value });
   }
 
   errorMessage(e) {
+    // Changes error message in this.state which will automatically re-render the component with this.state.error
     if (this.state.value >0) {
       return (
         <div>
@@ -58,8 +59,7 @@ class Contact extends Component {
     }
   }
   handleButtonClick() {
-    // console.log(this.state);
-    // console.log("button clicked", this.state.email, this.state.email);
+    // Uses logic to display proper error message depending on which combination of fields have been filled
     if (this.state.email.includes("@") > 0 && this.state.value != '') {
       console.log("Suceess! User email:", this.state.email , "\nUser interests: " , this.state.value);
       this.setState({
@@ -79,18 +79,17 @@ class Contact extends Component {
       })
     }
 
-    // this.state.error = "Please enter valid email address";
   }
   handleSelectChange (value) {
-		// console.log('You\'ve selected:', value);
-		this.setState({ value });
+    // Concatenates data from multi-select input form whenever something is modified in the input
+    this.setState({ value });
     console.log(this.state.value);
-	}
+  }
 
   render() {
     const { disabled, stayOpen, value } = this.state;
+    // options contains all the interests in multi-select input
     const options = INTERESTS;
-    // const value = selectedOption && selectedOption.value;
     return (
       <div className = "background">
         <Form className = "formField">
@@ -104,7 +103,8 @@ class Contact extends Component {
             >
               <FormControl
                 value = {this.state.email}
-                // This could also be set to type="email" but it will be more difficult to display the custom error message
+
+                // This could also be set to type="email" for a further input check but we want to implement our own error logic
                 type="text"
                 placeholder= 'Email'
                 onChange={this.handleChange}
@@ -126,6 +126,7 @@ class Contact extends Component {
                   placeholder="Interested in..."
                   removeSelected={this.state.removeSelected}
                   rtl={this.state.rtl}
+
                   simpleValue
                   value={value}
                 />
@@ -133,10 +134,24 @@ class Contact extends Component {
 
                 {/* </Col> */}
               </FormGroup>
-              <Button className = "buttonField" onClick = {this.handleButtonClick}>Sign Up Now</Button>
+              <Button
+                className = "buttonField"
+
+                // handleButtonClick processes the input fields to ensure data is safely passed
+                onClick = {this.handleButtonClick}
+                >Sign Up Now
+              </Button>
+
 
             </Form>
-            <div className = "footerContact" onclick ={this.noActions}><u><p>Unsubscribe</p></u></div>
+
+
+            <div
+              // The footer will properly resize when the height is reduced
+              className = "footerContact"
+              onclick ={this.noActions}>
+              <u><p>Unsubscribe</p></u>
+            </div>
 
           </div>
         );
